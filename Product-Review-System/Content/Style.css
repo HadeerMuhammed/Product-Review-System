@@ -1,0 +1,20 @@
+﻿.navbar-default {
+    background-color: #0c0c0c;
+    border-color: #e7e7e7;
+    }
+
+.navbar-default .navbar-nav > li > a {
+        color: #fffefe;
+    }
+
+.navbar-default .navbar-nav > li > a:hover {
+        color: #e7e7e7;
+    }
+
+.nav > li {
+    position: relative;
+    display: block;
+    height: 75px;
+    padding-top: 10px;
+}
+
