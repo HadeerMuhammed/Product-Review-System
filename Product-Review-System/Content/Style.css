@@ -1,4 +1,8 @@
-﻿.navbar-default {
+body {
+    padding-top: 100px;
+}
+
+.navbar-default {
     background-color: #0c0c0c;
     border-color: #e7e7e7;
     }
@@ -22,4 +26,4 @@
     background-color: black;
     padding: 10px;
     color: white;
-}
+
