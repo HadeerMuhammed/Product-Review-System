@@ -26,4 +26,14 @@ body {
     background-color: black;
     padding: 10px;
     color: white;
+}
 
+.myfooter h3, ul, p {
+        margin-bottom: 20px;
+    }
+
+.logo-size {
+    width: 80px;
+    height: 75px;
+    margin-top: -15px;
+}
