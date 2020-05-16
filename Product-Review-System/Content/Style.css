@@ -1,4 +1,4 @@
-﻿body {
+body {
     padding-top: 100px;
 }
 
@@ -26,17 +26,4 @@
     background-color: black;
     padding: 10px;
     color: white;
-    text-align:justify;
-}
-
-.myfooter h3, ul, p {
-        margin-bottom: 20px;
- 
- }
-
-.logo-size {
-    width: 90px;
-    height: 84px;
-    margin-top: -19px
-}
 
