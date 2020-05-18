@@ -65,6 +65,18 @@ namespace WebApplication4.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "First_Name")]
+        public string First_Name { get; set; }
+
+        [Required]
+        [Display(Name = "Last_Name")]
+        public string Last_Name { get; set; }
+
+        [Required]
+        [Display(Name = "PhoneNumber")]
+        public string PhoneNumber { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
