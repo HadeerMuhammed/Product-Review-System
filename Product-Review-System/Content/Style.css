@@ -27,11 +27,18 @@ body {
     padding: 10px;
     color: white;
 }
+<<<<<<< HEAD
 .myfooter h3, ul, p {
         margin-bottom: 20px;
     }
 
 
+=======
+
+.myfooter h3, ul, p {
+        margin-bottom: 20px;
+    }
+>>>>>>> cb2f44e1c9bb89b84ca25c4af313acad8705a233
 .logo-size {
     width: 80px;
     height: 75px;
