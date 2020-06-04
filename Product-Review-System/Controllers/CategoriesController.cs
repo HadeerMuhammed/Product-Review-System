@@ -22,7 +22,7 @@ namespace Product_Review_System.Controllers
         }
 
         // GET: Categories/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult ViewCategory(int? id)
         {
             if (id == null)
             {
