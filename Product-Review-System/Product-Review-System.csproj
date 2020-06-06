@@ -166,6 +166,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\addProductsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\FeedbacksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -189,10 +190,15 @@
     <Compile Include="Migrations\202006031435283_migrationname.designer.cs">
       <DependentUpon>202006031435283_migrationname.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006062214103_addfeedback.cs" />
+    <Compile Include="Migrations\202006062214103_addfeedback.designer.cs">
+      <DependentUpon>202006062214103_addfeedback.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddProduct.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
@@ -273,6 +279,11 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Search.cshtml" />
     <Content Include="Views\Products\Searchproducts.cshtml" />
+    <Content Include="Views\Feedbacks\Create.cshtml" />
+    <Content Include="Views\Feedbacks\Delete.cshtml" />
+    <Content Include="Views\Feedbacks\Details.cshtml" />
+    <Content Include="Views\Feedbacks\Edit.cshtml" />
+    <Content Include="Views\Feedbacks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -306,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006031435283_migrationname.resx">
       <DependentUpon>202006031435283_migrationname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006062214103_addfeedback.resx">
+      <DependentUpon>202006062214103_addfeedback.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
