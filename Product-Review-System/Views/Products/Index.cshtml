@@ -1,16 +1,19 @@
-﻿@model IEnumerable<Product_Review_System.Models.addProduct>
+﻿@model IEnumerable<Product_Review_System.Models.Product>
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.name)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.name)
         </th>

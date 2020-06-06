@@ -11,107 +11,112 @@ using WebApplication4.Models;
 
 namespace Product_Review_System.Controllers
 {
-    public class CategoriesController : Controller
+    public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Categories
+        // GET: Products
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            var products = db.Products.Include(p => p.Category);
+            return View(products.ToList());
         }
 
-        // GET: Categories/Details/5
-        public ActionResult ViewCategory(int? id)
+        // GET: Products/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(category);
+            return View(product);
         }
 
-        // GET: Categories/Create
+        // GET: Products/Create
         public ActionResult Create()
         {
+            ViewBag.category_id = new SelectList(db.Categories, "category_id", "name");
             return View();
         }
 
-        // POST: Categories/Create
+        // POST: Products/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "category_id,name,no_of_products")] Category category)
+        public ActionResult Create([Bind(Include = "id,name,price,description,category_id,image")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(category);
+                db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(category);
+            ViewBag.category_id = new SelectList(db.Categories, "category_id", "name", product.category_id);
+            return View(product);
         }
 
-        // GET: Categories/Edit/5
+        // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(category);
+            ViewBag.category_id = new SelectList(db.Categories, "category_id", "name", product.category_id);
+            return View(product);
         }
 
-        // POST: Categories/Edit/5
+        // POST: Products/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "category_id,name,no_of_products")] Category category)
+        public ActionResult Edit([Bind(Include = "id,name,price,description,category_id,image")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(category).State = EntityState.Modified;
+                db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(category);
+            ViewBag.category_id = new SelectList(db.Categories, "category_id", "name", product.category_id);
+            return View(product);
         }
 
-        // GET: Categories/Delete/5
+        // GET: Products/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(category);
+            return View(product);
         }
 
-        // POST: Categories/Delete/5
+        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = db.Categories.Find(id);
-            db.Categories.Remove(category);
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -124,5 +129,25 @@ namespace Product_Review_System.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult Search()
+        {
+            return View();
+        }
+   
+        public ActionResult Searchproducts(string searchName)
+        {
+
+            var pro = db.Products.Single(B => B.name == searchName);
+            if (pro != null)
+            {
+
+                return View(pro);
+            }
+            else 
+                return RedirectToAction("Index");
+
+        }
+        
+        
     }
 }
