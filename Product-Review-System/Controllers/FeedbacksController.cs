@@ -22,7 +22,7 @@ namespace Product_Review_System.Controllers
         }
 
         // GET: Feedbacks/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult ViewFeedback(int? id)
         {
             if (id == null)
             {
