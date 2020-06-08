@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Product_Review_System.Models.addProduct>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Product", "Create")
 </p>
 <table class="table">
     <tr>
@@ -44,9 +44,9 @@
             @Html.DisplayFor(modelItem => item.image)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
         </td>
     </tr>
 }
