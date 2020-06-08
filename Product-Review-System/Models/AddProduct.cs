@@ -28,6 +28,6 @@ namespace Product_Review_System.Models
         [DisplayName("Image")]
         public String image { get; set; }
 
-        
+
     }
 }
