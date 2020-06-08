@@ -39,6 +39,30 @@ namespace WebApplication4.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class EditProfile
+    {
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Name")]
+        public string name { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email Address")]
+
+        public string Email { get; set; }
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Phone Number")]
+
+        public string PhoneNumber { get; set; }
+
+
+    }
+
+ 
+
     public class ChangePasswordViewModel
     {
         [Required]
