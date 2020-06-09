@@ -48,7 +48,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.image)
+            <img src="@Url.Content(Model.image)" alt="@Model.name" />
         </dd>
 
     </dl>

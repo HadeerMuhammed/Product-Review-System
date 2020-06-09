@@ -23,6 +23,9 @@ namespace Product_Review_System.Models
         [DisplayName("Category id")]
         public int category_id { get; set; }
 
+        [DisplayName("Image")]
+        public int image { get; set; }
+
         public Category Category { get; set; }
 
     }
