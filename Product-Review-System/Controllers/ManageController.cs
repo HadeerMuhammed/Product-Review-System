@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -243,6 +244,51 @@ namespace WebApplication4.Controllers
             AddErrors(result);
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult editprofile()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            string username = User.Identity.Name;
+
+            // Fetch the userprofile
+            var user = db.Users.FirstOrDefault(u => u.UserName.Equals(username));
+
+            // Construct the viewmodel
+            EditProfile model = new EditProfile();
+            model.name = user.UserName;
+            model.PhoneNumber = user.PhoneNumber;
+            model.Email = user.Email;
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult editprofile(EditProfile model)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            if (ModelState.IsValid)
+            {
+                string username = User.Identity.Name;
+                // Get the userprofile
+                var user = db.Users.FirstOrDefault(u => u.UserName.Equals(username));
+
+                // Update fields
+                user.UserName = model.name;
+                user.Email = model.Email;
+                user.PhoneNumber = model.PhoneNumber;
+
+                db.Entry(user).State = EntityState.Modified;
+
+                db.SaveChanges();
+
+                return RedirectToAction("Index", "Home"); // or whatever
+            }
+            return View(model);
+        }
+
+
+
+
 
         //
         // GET: /Manage/SetPassword
