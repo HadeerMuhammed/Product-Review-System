@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.image)
         </th>
         <th>
-            Category Name  
+            @Html.DisplayNameFor(model => model.Category)
         </th>
         <th></th>
     </tr>
@@ -50,6 +50,8 @@
         @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
         @Html.ActionLink("View product", "Details", new { id = item.id }) |
         @Html.ActionLink("Delete", "Delete", new { id = item.id })
+  
+        
     </td>
 </tr>
 }
