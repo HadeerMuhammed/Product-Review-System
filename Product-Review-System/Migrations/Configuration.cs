@@ -9,8 +9,7 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "WebApplication4.Models.ApplicationDbContext";
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(WebApplication4.Models.ApplicationDbContext context)

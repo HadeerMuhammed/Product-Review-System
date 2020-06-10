@@ -5,16 +5,14 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
+
+
+
 <h2>View Product</h2>
 
-<div>
-    <h4>addProduct</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.name)
-        </dt>
 
+<div>
+    <dl class="dl-horizontal">
         <dd>
             @Html.DisplayFor(model => model.Category.name)
         </dd>
@@ -48,7 +46,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.image)
+            <img src="@Url.Content(Model.image)" alt="@Model.name" />
         </dd>
 
     </dl>

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Product_Review_System.Models;
 using WebApplication4.Models;
+using System.IO;
 
 namespace Product_Review_System.Controllers
 {
@@ -49,14 +50,23 @@ namespace Product_Review_System.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,price,description,category_id,image")] Product product)
+        public ActionResult Create( Product product, HttpPostedFileBase upload)
         {
-            if (ModelState.IsValid)
-            {
-                db.Products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            //if (ModelState.IsValid)
+            //{
+            //    string path = "";
+            //    if (upload.FileName.Length > 0)
+            //    {
+            //        path = "~/Uploads/" + Path.GetFileName(upload.FileName);
+            //        upload.SaveAs(Server.MapPath(path));
+            //    }
+            //    product.image = path;
+            //    var categoryindb = db.Categories.Single(c => c.category_id == product.category_id);
+            //    categoryindb.no_of_products++;
+            //    db.Products.Add(product);
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
 
             ViewBag.category_id = new SelectList(db.Categories, "category_id", "name", product.category_id);
             return View(product);
