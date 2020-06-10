@@ -52,21 +52,21 @@ namespace Product_Review_System.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create( Product product, HttpPostedFileBase upload)
         {
-            if (ModelState.IsValid)
-            {
-                //string path = "";
-                //if (upload.FileName.Length > 0)
-                //{
-                //    path = "~/Uploads/" + Path.GetFileName(upload.FileName);
-                //    upload.SaveAs(Server.MapPath(path));
-                //}
-                //product.image = path;
-                //var categoryindb = db.Categories.Single(c => c.category_id == product.category_id);
-                //categoryindb.no_of_products++;
-                db.Products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            //if (ModelState.IsValid)
+            //{
+            //    string path = "";
+            //    if (upload.FileName.Length > 0)
+            //    {
+            //        path = "~/Uploads/" + Path.GetFileName(upload.FileName);
+            //        upload.SaveAs(Server.MapPath(path));
+            //    }
+            //    product.image = path;
+            //    var categoryindb = db.Categories.Single(c => c.category_id == product.category_id);
+            //    categoryindb.no_of_products++;
+            //    db.Products.Add(product);
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
 
             ViewBag.category_id = new SelectList(db.Categories, "category_id", "name", product.category_id);
             return View(product);

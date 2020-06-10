@@ -24,7 +24,7 @@ namespace Product_Review_System.Models
         public int category_id { get; set; }
 
         [DisplayName("Image")]
-        public int image { get; set; }
+        public String image { get; set; }
 
         public Category Category { get; set; }
 
