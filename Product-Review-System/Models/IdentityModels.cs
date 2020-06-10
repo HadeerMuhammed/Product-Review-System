@@ -34,8 +34,6 @@ namespace WebApplication4.Models
 
         public System.Data.Entity.DbSet<Product_Review_System.Models.Category> Categories { get; set; }
 
-        public System.Data.Entity.DbSet<Product_Review_System.Models.Product> Products { get; set; }
-
         public System.Data.Entity.DbSet<Product_Review_System.Models.Feedback> Feedbacks { get; set; }
     }
 }

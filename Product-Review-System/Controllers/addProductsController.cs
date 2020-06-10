@@ -71,6 +71,11 @@ namespace Product_Review_System.Controllers
             return Content("Done");
         }
 
+        public ActionResult SearchProduct(string search)
+        {
+            return View(db.AddProducts.Where(x => x.name.Contains(search) || search == null).ToList());
+
+        }
 
 
         // GET: addProducts/Edit/5
